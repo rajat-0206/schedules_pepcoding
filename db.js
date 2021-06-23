@@ -73,6 +73,9 @@ const Schedules =  sequelize.define("Schedules",{
     freezeTableName:true
 })
 
+Teachers.hasMany(Schedules)
+Schedules.belongsTo(Teachers)
+
 
 connection()
 sync()
