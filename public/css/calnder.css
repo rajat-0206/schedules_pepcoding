@@ -7,16 +7,21 @@ html {
   font-size: 1.5rem;
   font-family: sans-serif;
   line-height: 1.6;
-  background: #ffffff;
+  background: #fff;
   width: 90%;
-  margin: 5rem auto;
-  height: 40rem;
+  margin: 2rem auto;
+  min-height: 36rem;
   display: -ms-grid;
   display: grid;
+  border-radius: 10px;
   -ms-grid-rows: 8rem auto 10rem;
       grid-template-rows: 8rem auto 10rem;
-  -webkit-box-shadow: 0 1rem 2.5rem #1b405e;
-          box-shadow: 0 1rem 2.5rem #1b405e;
+  -webkit-box-shadow: 0 1rem 1.5rem rgba(27, 64, 94, 0.3);
+          box-shadow: 0 1rem 1.5rem rgba(27, 64, 94, 0.3);
+}
+
+.calender section {
+  height: 60px;
 }
 
 .calender ul {
@@ -25,7 +30,7 @@ html {
 
 .calender__header {
   padding: 0 1.25rem;
-  color: #7D8994;
+  color: #7d8994;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -35,11 +40,15 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
   border-bottom: 2px solid #333;
 }
 
 .calender__body {
-  padding: 1.5rem 2rem;
+  padding: 1rem 2rem;
 }
 
 .calender__body--days {
@@ -62,7 +71,7 @@ html {
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  color: #7D8994;
+  color: #7d8994;
   margin: 0 1px;
   -webkit-user-select: none;
      -moz-user-select: none;
@@ -95,10 +104,11 @@ html {
       -ms-user-select: none;
           user-select: none;
   cursor: pointer;
+  border-radius: 20px;
 }
 
 .calender__body--dates li:hover {
-  background-color: #db967d;
+  background-color: #f9d436;
 }
 
 .calender__body--dates li.prev,
@@ -114,11 +124,5 @@ html {
 .calender__body--dates li.prev:hover,
 .calender__body--dates li.next:hover {
   background-color: transparent;
-}
-
-.calender__body--dates li.active {
-  background: #DE6E46;
-  color: #ffffff;
-  border-radius: 50%;
 }
 /*# sourceMappingURL=calnder.css.map */

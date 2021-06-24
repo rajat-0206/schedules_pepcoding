@@ -4,6 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="/css/style.css">
     <link rel="stylesheet" href="/css/calnder.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,39 +13,62 @@
 
 <body>
     <header>
-        <h3>Task Scheduler</h3>
+        <h3>Task Scheduler <h4><sub>by Rajat Shrivastava</sub></h4></h3>
     </header>
 
     <div class="main">
         <div class="left-pane">
-            <select id="monthlist">
-                <option value="01">January</option>
-                <option value="02">February</option>
-                <option value="03">March</option>
-                <option value="04">April</option>
-                <option value="05">May</option>
-                <option value="06">June</option>
-                <option value="07">July</option>
-                <option value="08">August</option>
-                <option value="09">September</option>
-                <option value="10">October</option>
-                <option value="11">November</option>
-                <option value="12">December</option>
+            <div class="utilities">
+                <div class="calenderDate">
+                <fieldset>
+                    <legend>Month</legend>
+                <select id="monthlist">
+                    <option value="01">January</option>
+                    <option value="02">February</option>
+                    <option value="03">March</option>
+                    <option value="04">April</option>
+                    <option value="05">May</option>
+                    <option value="06">June</option>
+                    <option value="07">July</option>
+                    <option value="08">August</option>
+                    <option value="09">September</option>
+                    <option value="10">October</option>
+                    <option value="11">November</option>
+                    <option value="12">December</option>
 
-            </select>
-            <select id="yearlist"> 
-            </select>
-            <select id="views">
-                <option value="day">View schedule for a day</option>
-                <option value="week">View schedule for whole week</option>
-                <option value="month">View schedule for whole month</option>
-            </select>
-            <button onclick="displayCalender()">Show calender</button>
+                </select>
+                </fieldset>
+                <fieldset>
+                    <legend>Year</legend>
+                <select id="yearlist">
+                </select>
+                </fieldset>
+                </div>
+                <button onclick="displayCalender()">Show calender</button>
+
+                <fieldset>
+                <legend>Filter by duration</legend>
+                <select id="views">
+                    <option value="day">View schedule for a day</option>
+                    <option value="week">View schedule for whole week</option>
+                    <option value="month">View schedule for whole month</option>
+                </select>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Filter by teacher</legend>
+                    </p>
+                <select id="teacherlist">
+                    <option value="0">All teachers</option>
+                </select>
+                </fieldset>
+            </div>
+
             <div class="calender">
                 <section class="calender__header">
                     <h3 id="displayMonth">January </h3>
                     <h3 id="displayYear">January </h3>
-                  </section>
+                </section>
                 <section class="calender__body">
                     <ul class="calender__body--days">
                         <li>mon</li>
@@ -63,27 +87,67 @@
                 </main>
             </div>
         </div>
-        <div class="right-pane" >
+        <div class="right-pane">
             <span class="title" id="pane-title">Click on any date to view the schedule</span>
+
             <div class="details" id="tasklist"></div>
-           </div>
         </div>
-        <button id="addButton" title="Add new schedule" onclick="openModal()">+</button>
-        <div class="modal" id="addScheudlemodal">
-            <span class="close" onclick="closeModal()">&times</span>
-            <div class="modalcontent">
-               <form >
-                <select id="selectTeacher">
-                    <option value="1">Rajat Shrivastava</option>
-                </select>
-                <textarea id="" cols="30" rows="3" id="batch"></textarea>
-                <input type="date" id="seldate">
-                <button type="button"    id="submitSchedule" >Submit Schedule</button>
-                </form>
+    </div>
+    <div class="bottomButton">
+        <button id="addButton" class="actionButton" title="Add new schedule" onclick="openModal()"><i class="material-icons">add</i></button>
+        <button  class="actionButton" title="Show instruction" onclick="$('#instruction').show()"><i class="material-icons">help_outline</i></button>
+    </div>
+   
+    
+    <div class="modal" id="addScheudlemodal">
+        <span class="close" onclick="closeModal()">&times</span>
+        <div class="modalcontent">
+            <center><h1>Add Schedule</h1></center>
+            <form>
+                
+            <div class="one" style="display: flex; flex-direction: row;">
+                <fieldset>
+                    <legend>Select Teacher</legend>
+                    <select id="selTeacher">
 
+                    </select>
+                </fieldset>
+                <fieldset>
+                    <legend>Select date</legend>
+                    <input type="date" id="seldate">
+                </fieldset>
             </div>
-        </div>
+               <fieldset>
+                   <legend>Enter some schedule</legend>
+                <textarea cols="30" rows="3" id="batch"></textarea>
+               </fieldset>
+                
+              
+                
+                <button type="button" onclick="submitSchedule()">Submit Schedule</button>
+            </form>
 
+        </div>
+    </div>
+    <div class="modal" id="instruction">
+        <span class="close" onclick='$("#instruction").hide()'>&times</span>
+        <div class="modalcontent">
+            <center><h1>Instructions</h1></center>
+            <form>
+            <ul>
+                <li>On the left hand side select month and year and click on <strong>Show canlender</strong> to display calender of that month.</li>
+                <li>Click on any date to view the number of schedules of that date.</li>
+                <li>Clicking on schedule on the right panel will give you all the schedules of that date.</li>
+                <li>From the left side select teacher name from <strong>Filter by teacher</strong> to display schedule of specific teacher.</li>
+                <li>Select <strong>Filter by duration</strong> to view schedule by week wise or month wise.</li>
+                <li>While in week wise or month wise view click on any date to view schedule of that week or that month.</li>
+                <li><strong>Double click</strong>  on the date to add schedule for that date.</li>
+                <li>You can also click on <strong>Add</strong> button on bottom right to add schedule.</li>
+                <li>If a teacher has a schedule for that date, further schedule cannot be added to it.</li>
+            </ul>
+            </form>
+            </div>
+            </div>
     <div class="snackbar" id="messageBar">
         This is the snackbar
     </div>

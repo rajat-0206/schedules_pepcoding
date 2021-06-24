@@ -1,110 +1,102 @@
-$bg-color: #78ACCD;
-$white: #ffffff;
-$black: #333333;
-$gray: #7D8994;
-$orange: #DE6E46;
-$purple: #AE5989;
+
+
+@import "./variables";
 
 $radius: 50%;
 
 @mixin centerAlign {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-
 html {
-    font-size: 10px;
-    
+  font-size: 10px;
 }
 
 .calender {
-    color: $black;
-    font-size: 1.5rem;
-    font-family: sans-serif;
-    line-height: 1.6;
-    background: $white;
-    width: 90%;
-    margin: 5rem auto;
-    height:40rem;
-    display: grid;
-    grid-template-rows: 8rem auto 10rem;
-    box-shadow: 0 1rem 2.5rem rgb(27, 64, 94);
+  color: #333333;;
+  font-size: 1.5rem;
+  font-family: sans-serif;
+  line-height: 1.6;
+  background: #fff;
+  width: 90%;
+  margin: 2rem auto;
+  min-height: 36rem;
+  display: grid;
+  border-radius: 10px;
+  grid-template-rows: 8rem auto 10rem;
+  box-shadow: 0 1rem 1.5rem rgba(27, 64, 94,0.3);
 
-    ul {
-        list-style: none;
+  section {
+    height: 60px;
+  }
+
+  ul {
+    list-style: none;
+  }
+  &__header {
+    padding: 0 1.25rem;
+    color: #7d8994;;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+    border-bottom: 2px solid #333;
+  }
+
+  &__body {
+    padding: 1rem 2rem;
+
+    &--days {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 4rem;
+
+      li {
+        flex: 1;
+        font-weight: bold;
+        text-transform: uppercase;
+        text-align: center;
+        color: #7d8994;;
+        margin: 0 1px;
+        user-select: none;
+      }
     }
-        &__header {
-            padding: 0 1.25rem;
-            color: $gray;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 2px solid #333;
+    &--dates {
+      display: grid;
+      gap: 3px;
+      grid-template-columns: repeat(7, 1fr);
+      justify-items: center;
+      text-align: center;
+
+      li {
+        width: 3.5rem;
+        height: 3.5rem;
+        display: grid;
+        place-items: center;
+        font-weight: bold;
+        position: relative;
+        transition: 0.5s ease;
+        user-select: none;
+        cursor: pointer;
+        border-radius: 20px;
+
+        &:hover {
+          background-color: $primaryColor;
         }
+      }
+      li.prev,
+      li.next {
+        color: #ccc;
+        user-select: none;
+        cursor: not-allowed;
 
-        &__body {
-             padding: 1.5rem 2rem;
-    
-
-            &--days {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                height: 4rem;
-    
-                li {
-                    flex: 1;
-                    font-weight: bold;
-                    text-transform: uppercase;
-                    text-align: center;
-                    color: $gray;
-                    margin: 0 1px;
-                    user-select: none;
-                }
-            }
-            &--dates {
-                display: grid;
-                gap: 3px;
-                grid-template-columns: repeat(7, 1fr);
-                justify-items: center;
-                text-align: center;
-
-                li {
-                    width: 3.5rem;
-                    height: 3.5rem;
-                    display: grid;
-                    place-items: center;
-                    font-weight: bold;
-                    position: relative;
-                    transition: 0.5s ease;
-                    user-select: none;
-                    cursor: pointer;
-
-                    &:hover{
-                        background-color: #db967d;
-                    }
-                }
-                li.prev,
-                li.next {
-                    color: #ccc;
-                    user-select: none;
-                    cursor:not-allowed;
-
-                    &:hover{
-                        background-color: transparent;
-                    }
-                }
-                li.active {
-                    background: $orange;
-                    color: $white;
-                    border-radius: $radius;
-                }
-                
-            }
+        &:hover {
+          background-color: transparent;
         }
-    
-}
-
-
+      }
+      }
+    }
+  }

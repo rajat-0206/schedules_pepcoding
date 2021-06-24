@@ -145,7 +145,7 @@ app.post("/scheduleTask", async (req, res) => {
         }
     });
     if (check.length > 0) {
-        return res.send("Teacher already has a schedule on the given date");
+        return res.json({"response":"Teacher already has a schedule on the given date"});
     }
     else {
         let result;
@@ -154,20 +154,30 @@ app.post("/scheduleTask", async (req, res) => {
         }
         catch (e) {
             console.log(e);
-            res.send("Some error occured")
+            res.json({"response":"Some error occured"})
         }
-        console.log(result)
-        return res.send(JSON.stringify(result));
+        return res.json(result);
     }
 
 
 })
 
 
-app.get("/",(req,res)=>{
+app.get("/",async (req,res)=>{
     console.log("request aa gayi");
     res.sendFile(__dirname + "/views/index.html");
 
+})
+
+app.get("/getTeachers",async(req,res)=>{
+
+    let teachers = await Teachers.findAll({
+        attributes:[
+            "id",
+            "name"
+        ]
+    });
+    return res.json(teachers);
 })
 
 
