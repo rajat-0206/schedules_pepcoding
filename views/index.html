@@ -1,15 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/calnder.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Task Scheduler</title>
 </head>
+
 <body>
+    <header>
+        <h3>Task Scheduler</h3>
+    </header>
+
     <div class="main">
-        <div class="left-pane">this is left pane</div>
-        <div class="right-pane">this is right pane</div>
-    </dib>
+        <div class="left-pane">
+            <select id="monthlist">
+                <option value="01">January</option>
+                <option value="02">February</option>
+                <option value="03">March</option>
+                <option value="04">April</option>
+                <option value="05">May</option>
+                <option value="06">June</option>
+                <option value="07">July</option>
+                <option value="08">August</option>
+                <option value="09">September</option>
+                <option value="10">October</option>
+                <option value="11">November</option>
+                <option value="12">December</option>
+
+            </select>
+            <select id="yearlist"> 
+            </select>
+            <select id="views">
+                <option value="day">View schedule for a day</option>
+                <option value="week">View schedule for whole week</option>
+                <option value="month">View schedule for whole month</option>
+            </select>
+            <button onclick="displayCalender()">Show calender</button>
+            <div class="calender">
+                <section class="calender__header">
+                    <h3 id="displayMonth">January </h3>
+                    <h3 id="displayYear">January </h3>
+                  </section>
+                <section class="calender__body">
+                    <ul class="calender__body--days">
+                        <li>mon</li>
+                        <li>tue</li>
+                        <li>wed</li>
+                        <li>thu</li>
+                        <li>fri</li>
+                        <li>sat</li>
+                        <li>sun</li>
+                    </ul>
+                    <ul class="calender__body--dates" id="Cdates">
+
+                    </ul>
+                </section>
+
+                </main>
+            </div>
+        </div>
+        <div class="right-pane" >
+            <span class="title" id="pane-title">Click on any date to view the schedule</span>
+            <div class="details" id="tasklist"></div>
+           </div>
+        </div>
+        <button id="addButton" title="Add new schedule" onclick="openModal()">+</button>
+        <div class="modal" id="addScheudlemodal">
+            <span class="close" onclick="closeModal()">&times</span>
+            <div class="modalcontent">
+               <form >
+                <select id="selectTeacher">
+                    <option value="1">Rajat Shrivastava</option>
+                </select>
+                <textarea id="" cols="30" rows="3" id="batch"></textarea>
+                <input type="date" id="seldate">
+                <button type="button"    id="submitSchedule" >Submit Schedule</button>
+                </form>
+
+            </div>
+        </div>
+
+    <div class="snackbar" id="messageBar">
+        This is the snackbar
+    </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="/js/index.js"></script>
+
 </html>

@@ -1,4 +1,5 @@
 const { weekdays } = require("moment");
+const getCalender  = require("./calender");
 
 require("dotenv").config();
 const express = require("express"),
@@ -8,7 +9,13 @@ const express = require("express"),
     { Op } = require("sequelize"),
     app = express();
 
-app.use(cors())
+app.use(cors()) 
+
+app.use(express.static("public"));
+
+app.set("views",__dirname + "/views");
+
+
 app.use(express.urlencoded({
     extended: true
 }));
@@ -19,7 +26,7 @@ const getEventCount = async (startdate, enddate,teacherId) => {
     let queryObj = {
         attributes: [
             "date",
-            [sequelize.fn('COUNT', sequelize.col('id')), "total task"]
+            [sequelize.fn('COUNT', sequelize.col('id')), "total_task"]
         ],
 
         where: {
@@ -79,6 +86,19 @@ app.get("/getTaskCount", async (req, res) => {
     res.send(JSON.stringify(result));
 })
 
+app.get("/getCalender",(req,res)=>{
+    let {month,year} = req.query;
+    console.log(month,year);
+    let result = getCalender(year,month);
+    if(!month && !year){
+        month = moment(moment(),"YYYY/MM/DD").format("MM")
+        year =  moment(moment(),"YYYY/MM/DD").format("YYYY")
+    }
+    let monthList = ["January","February","March","April","May","June","July","August","September","October","November","December"]
+    monthname = monthList[Number(month) -1]
+    return res.json({result,month,year,monthname});
+
+})
 
 app.get("/alltask", async (req, res) => {
     let date = req.query.date
@@ -144,6 +164,11 @@ app.post("/scheduleTask", async (req, res) => {
 })
 
 
+app.get("/",(req,res)=>{
+    console.log("request aa gayi");
+    res.sendFile(__dirname + "/views/index.html");
+
+})
 
 
 const server_port = process.env.PORT || 5000 || 80,

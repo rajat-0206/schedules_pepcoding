@@ -1,0 +1,65 @@
+$height : calc(100vh - 60px);
+
+@mixin pane {
+    height: calc(100vh - 90px);
+    background-color: white;
+    content: " ";
+    border-radius: 20px;
+    margin: 5px 10px;
+}
+
+
+@mixin centerAlign {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+
+.main{
+    background-color: $mainBodyBackground;
+    position: fixed;
+    top:50px;
+    left:0px;
+    height: $height;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+
+    .left-pane {
+       @include pane();
+        width: 29%;
+        padding: 20px 10px;
+
+        
+
+       
+    }  
+
+    .right-pane {
+        @include pane();
+        width: 69%;
+
+        .cards{
+            background-color: lightblue;
+            padding: 8px 16px;
+            width:24.44%;
+            border-radius: 20px;
+
+            .pallate {
+                padding: 12px;
+                box-shadow: 2px 1px 24px 1px #0000001f;
+                border-radius: 12px;
+                background-color: $textColor;
+                transition: 0.5s;
+            }
+
+        }
+
+    }
+
+
+
+}
+
