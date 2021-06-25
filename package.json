@@ -4,7 +4,8 @@
   "description": "A scheduler to schedule task for different teacher. Project for pepcoding",
   "main": "index.js",
   "scripts": {
-    "test": "npm start"
+    "test": "npm start",
+    "start":"node index.js"
   },
   "author": "Rajat Shrivastava",
   "license": "ISC",

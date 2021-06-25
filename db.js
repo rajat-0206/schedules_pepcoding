@@ -1,7 +1,6 @@
 require("dotenv").config();
 const { Sequelize, DataTypes } = require('sequelize');
 
-
 const sequelize = new Sequelize(process.env.DB, process.env.USER, process.env.PASSWORD, {
     host: process.env.HOST,
     dialect: 'mysql'
@@ -74,7 +73,8 @@ const Schedules =  sequelize.define("Schedules",{
     freezeTableName:true
 })
 
-
+Teachers.hasMany(Schedules)
+Schedules.belongsTo(Teachers)
 
 
 connection()
