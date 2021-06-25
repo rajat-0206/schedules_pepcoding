@@ -23,7 +23,6 @@ window.addEventListener("load", async () => {
 
     response = await fetch("/getTeachers");
     let teachers = await response.json();
-    console.log(teachers)
     teachers.forEach(teacher => {
         $("#teacherlist").append(`<option value="${teacher.id}">${teacher.name}</option>`)
         $("#selTeacher").append(`<option value="${teacher.id}">${teacher.name}</option>`)
@@ -38,7 +37,6 @@ const displayCalender = async () => {
     let year = $("#yearlist").val();
     let response = await fetch(`/getCalender?&year=${year}&month=${month}`);
     let getDays = await response.json();
-    console.log(getDays)
     $("#Cdates").html(" ");
     getDays.result.forEach(day => {
         if (!day.isCurrentMonth) {
@@ -65,7 +63,6 @@ const getTaskCount = async (day, month, year) => {
     }
     let response = await fetch(url)
     let tasks = await response.json();
-    console.log(tasks);
     $("#tasklist").html(" ");
     $("#panetitle").html("Click on the date to view all task of that date")
     tasks.forEach(task => {
@@ -120,7 +117,6 @@ const openModal = (year, month, day) => {
         day = String(day).length === 1 ? "0" + day : day;
         month = String(month).length === 1 ? "0" + month : month;
         let date = `${year}-${month}-${day}`;
-        console.log(date)
         $("#seldate").val(date);
     }
     $("#addScheudlemodal").show();
@@ -155,7 +151,6 @@ const submitSchedule = async() => {
     let teacherId = $("#selTeacher").val();
     let batch = $("#batch").val();
     let date = $("#seldate").val();
-    console.log(date)
     if (!teacherId || !batch.trim()  || !date) {
         showSnackbar("Please enter all the information",true);
         return;

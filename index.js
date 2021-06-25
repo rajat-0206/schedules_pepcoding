@@ -66,18 +66,15 @@ app.get("/getTaskCount", async (req, res) => {
     if (!viewBy || viewBy.toLowerCase() === "day") {
         startdate = moment(targetDate).format();
         enddate = startdate;
-        console.log(startdate, enddate);
     }
     else if (viewBy.toLowerCase() === "week") {
 
         startdate = moment(targetDate).startOf('week').format();
         enddate = moment(targetDate).endOf('week').format();
-        console.log(startdate, enddate);
     }
     else if (viewBy.toLowerCase() === "month") {
         startdate = moment(targetDate).startOf('month').format();
         enddate = moment(targetDate).endOf('month').format();
-        console.log(startdate, enddate);
     }
     else {
         res.send("404");
@@ -88,7 +85,6 @@ app.get("/getTaskCount", async (req, res) => {
 
 app.get("/getCalender",(req,res)=>{
     let {month,year} = req.query;
-    console.log(month,year);
     let result = getCalender(year,month);
     if(!month && !year){
         month = moment(moment(),"YYYY/MM/DD").format("MM")
@@ -136,7 +132,6 @@ app.get("/alltask", async (req, res) => {
 })
 
 app.post("/scheduleTask", async (req, res) => {
-    console.log(req.body);
     let { teacherId, batch, date } = req.body;
     let check = await Schedules.findAll({
         where: {
@@ -164,7 +159,6 @@ app.post("/scheduleTask", async (req, res) => {
 
 
 app.get("/",async (req,res)=>{
-    console.log("request aa gayi");
     res.sendFile(__dirname + "/views/index.html");
 
 })
