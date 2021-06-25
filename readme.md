@@ -3,15 +3,7 @@
 Project made by <a href="https://itsrajat.xyz">Rajat Shrivastava</a>
 
 <br>
-<img src="https://img.shields.io/badge/MYSQL-4EA94B?style=for-the-badge&logo=mysql&logoColor=white" />
-
-<img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" />
-
-<img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB" />
-
-<img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node-dot-js&logoColor=white" />
-
-<img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" />
+<img src="https://img.shields.io/badge/MYSQL-4EA94B?style=for-the-badge&logo=mysql&logoColor=white" /><img src="https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white" /><img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node-dot-js&logoColor=white" /><img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" />
 
 <br />
 
@@ -55,18 +47,21 @@ git clone https://github.com/rajat-0206/schedules_pepcoding
 
 ```
 npm install
+    
+```
+  
+<li>Start server using following command</li>
+
+    
+```
+    npm start
+    
 ```
 
-5. Start server using following command
-
-```
-npm start
-```
-
-5. Visit the following url to browse web app.
+<li>Visit the following url to browse web app.</li>
 
 `localhost:5000`
-
+</ol>
 
 
 ## REST API DOCUMENTATION
@@ -105,11 +100,12 @@ npm start
 `GET https://scheduler-pep.herokuapp.com/getTaskCount?viewBy=month&date=2021/06/05&teacherId=1`
 
 <p> Here all the parameters are optional. Default values are following:</p>
-    <ol>
+<ol>
 <li>viewBy : day</li>
 <li>date : today's Date </li>
 <li>teacherId : null || Tasks for all teachers will comes</li>
-</ul>
+</ol>
+    
 ### Response
 ```
 [
@@ -228,7 +224,7 @@ npm start
 ]
 ```
 
-## Instruction to use
+## INSTRUCTION TO USE
 
  <ul>
                 <li>On the left hand side select month and year and click on <strong>Show canlender</strong> to display calender of that month.</li>
@@ -244,7 +240,7 @@ npm start
 
 
 
-## Features
+## FEATURES
 
 - Add task / schedules for teachers.
 - View schedule day wise, week wise and month wise.
