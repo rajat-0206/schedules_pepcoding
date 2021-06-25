@@ -119,6 +119,57 @@
   font-size: 24px !important;
 }
 
+@media screen and (max-width: 900px) {
+  .main {
+    position: relative;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    overflow-y: auto !important;
+    max-height: calc(100vh - 50px) !important;
+  }
+  .left-pane {
+    width: 100% !important;
+    -webkit-box-orient: horizontal !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: row !important;
+            flex-direction: row !important;
+    height: 45% !important;
+  }
+  .left-pane .utilities {
+    margin: 5px 0px !important;
+  }
+  .right-pane {
+    margin-top: 70px !important;
+    width: 95% !important;
+    margin-top: -5px !important;
+    max-height: 40% !important;
+  }
+  .right-pane .details {
+    max-height: 100% !important;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .left-pane {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+    height: 100vh !important;
+  }
+  .left-pane .utilities {
+    width: 100% !important;
+  }
+  .left-pane .calender {
+    width: 100%;
+  }
+  .right-pane {
+    height: 100vh !important;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -353,7 +404,36 @@ fieldset select {
   margin: 0px;
 }
 
-#instruction li {
+#instruction ul {
+  height: 100%;
+  overflow-y: auto;
+}
+
+#instruction ul::-webkit-scrollbar {
+  width: 5px;
+}
+
+#instruction ul::-webkit-scrollbar-thumb {
+  background-color: #333;
+}
+
+#instruction ul li {
   margin: 5px;
+  list-style-type: circle;
+}
+
+@media screen and (max-width: 900px) {
+  .modalcontent {
+    width: 90% !important;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .modalcontent .one {
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+        -ms-flex-direction: column !important;
+            flex-direction: column !important;
+  }
 }
 /*# sourceMappingURL=style.css.map */

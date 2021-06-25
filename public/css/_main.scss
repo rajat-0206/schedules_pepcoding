@@ -121,7 +121,61 @@ $height : calc(100vh - 60px);
 
     }
 
-
-
 }
 
+
+@media screen and (max-width:900px) {
+    
+    .main{
+        position: relative;
+        flex-direction: column !important;
+        overflow-y: auto !important;
+        max-height: calc(100vh - 50px)  !important;
+    }
+
+    .left-pane {
+        width: 100% !important;
+        flex-direction: row !important;
+        height: 45% !important;
+
+        .utilities {
+            margin: 5px 0px !important;
+        }
+    }
+
+
+    .right-pane {
+        margin-top: 70px !important;
+        width: 95% !important;
+        margin-top: -5px !important;
+        max-height: 40% !important;
+
+
+        .details {
+            max-height: 100% !important;
+        }
+
+
+    }
+}
+
+@media screen and (max-width:550px){
+
+
+    .left-pane {
+        flex-direction: column !important;
+        height: 100vh !important;
+        .utilities {
+            width: 100% !important;
+        }
+
+        .calender {
+            width: 100%;
+        }
+    }
+
+    .right-pane {
+        height: 100vh !important;
+
+    }
+}

@@ -100,3 +100,10 @@ html {
       }
     }
   }
+
+
+  @media screen and (max-width:900px) {
+    .calender {
+      margin: 0px !important;
+    }
+  }

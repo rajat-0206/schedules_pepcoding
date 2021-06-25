@@ -223,7 +223,44 @@ fieldset {
 }
 
 #instruction {
-    li {
+
+    ul {
+      height: 100%;
+      overflow-y: auto;
+
+      &::-webkit-scrollbar {
+        width:5px;
+      }
+
+      &::-webkit-scrollbar-thumb{
+        background-color: #333;
+      }
+
+      li {
         margin:5px;
+        list-style-type: circle;
+    }
+
+    }
+    
+}
+
+@media screen and (max-width:900px){
+
+    .modalcontent {
+      width: 90% !important;
+
     }
 }
+
+@media screen and (max-width:550px){
+
+  .modalcontent {
+    .one {
+      flex-direction: column !important;
+    }
+
+  }
+}
+
+

@@ -125,4 +125,10 @@ html {
 .calender__body--dates li.next:hover {
   background-color: transparent;
 }
+
+@media screen and (max-width: 900px) {
+  .calender {
+    margin: 0px !important;
+  }
+}
 /*# sourceMappingURL=calnder.css.map */
