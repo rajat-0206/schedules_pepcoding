@@ -22,7 +22,6 @@ A web app to schedule task for different teachers. APIs are made in express and 
 ## Screenshot (s)
 
 <a href="https://ibb.co/1T8FnJ9"><img src="https://i.ibb.co/hVD3M1K/instruction.jpg" alt="instruction" border="0"></a>
-
 <center>Instruction</center>
 <br>
 <a href="https://ibb.co/mRLqhVc"><img src="https://i.ibb.co/S6hnV43/main-page.jpg" alt="main-page" border="0"></a>
@@ -110,7 +109,7 @@ npm start
 <li>viewBy : day</li>
 <li>date : today's Date </li>
 <li>teacherId : null || Tasks for all teachers will comes</li>
-
+</ul>
 ### Response
 ```
 [
